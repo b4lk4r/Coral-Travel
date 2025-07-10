@@ -1,7 +1,9 @@
 export const promos = [
   {
     toggle: true,
-    erid: "",
+    erid: "F7k2C1xLp",
+    showAdLabel: true,
+    advertiser: "ООО «МирТурСервис»",
     name: "Горящие туры в Турцию",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
@@ -13,6 +15,8 @@ export const promos = [
   {
     toggle: true,
     erid: "",
+    showAdLabel: true,
+    advertiser: "ООО «МирТурСервис»",
     name: "Отдых в Сочи",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
@@ -23,7 +27,9 @@ export const promos = [
   },
   {
     toggle: true,
-    erid: "",
+    erid: "Z9u4V5eQb",
+    showAdLabel: true,
+    advertiser: "ООО «МирТурСервис»",
     name: "Раннее бронирование 2026",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
@@ -34,7 +40,9 @@ export const promos = [
   },
   {
     toggle: true,
-    erid: "",
+    erid: "A1b2C3d4E",
+    showAdLabel: true,
+    advertiser: "ООО «МирТурСервис»",
     name: "Бонусы Sunmar",
     description: "Получите двойные бонусы при бронировании",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
@@ -46,6 +54,8 @@ export const promos = [
   {
     toggle: true,
     erid: "",
+    showAdLabel: true,
+    advertiser: "ООО «МирТурСервис»",
     name: "Специальное предложение",
     description: "Эксклюзивные условия для наших клиентов",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",

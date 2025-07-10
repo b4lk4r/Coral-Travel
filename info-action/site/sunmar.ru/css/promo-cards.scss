@@ -108,3 +108,113 @@
      background: #C11117
   }
 }
+
+
+.promo-card-ad-label-wrapper {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+}
+
+.promo-card-ad-label {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px; 
+  padding: 2px 12px;
+  background-color: rgba(245, 245, 248, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 40px; 
+  color: #333;
+  font-family: 'Museo Sans Cyril', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+.promo-card-tooltip {
+
+  position: fixed; 
+  width: max-content;
+  max-width: 300px;
+  padding: 10px 14px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s;
+  z-index: 1000; 
+
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; 
+    left: var(--arrow-left-position, 50%); 
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+  
+    border-color: transparent transparent #fff transparent; 
+  }
+}
+
+
+.tooltip-content-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+
+.tooltip-erid-text {
+  color: #555;
+}
+
+.tooltip-erid {
+  font-family: monospace;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.tooltip-copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
