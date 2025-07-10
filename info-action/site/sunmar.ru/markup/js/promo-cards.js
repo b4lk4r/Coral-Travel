@@ -108,4 +108,5 @@ import { promos } from "./data.js";
   window.addEventListener('filterPromos', (e) => {
     renderPromos(e.detail.category);
   });
+
 })();
