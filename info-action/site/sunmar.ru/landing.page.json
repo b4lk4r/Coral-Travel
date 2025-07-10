@@ -5,6 +5,7 @@
     "cdnAssetsURL": "//b2ccdn.sunmar.ru/content/landing-pages/info-action"
   },
   "sections": [
-    "site/sunmar.ru/markup/hotdeals.html"
+    "site/sunmar.ru/markup/hotdeals.html",
+    "site/sunmar.ru/markup/promo-card.html"
   ]
 }
