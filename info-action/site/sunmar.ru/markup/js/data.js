@@ -21,7 +21,7 @@ export const promos = [
     string_promo_end: "до 31 июля 2025 г.",
     promo_end: "2025-07-31 23:59:59",
     categories: [tag.all]
-    YM: ''  
+  
   },
   {
     toggle: true,

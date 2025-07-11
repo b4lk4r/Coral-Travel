@@ -1,4 +1,16 @@
 import { setupTooltipEvents } from './tooltip-manager.js';
+import { trackPromoClick } from './yandex-metrika.js';
+
+function setupPromoButton(buttonElement, promo) {
+  if (!buttonElement) return;
+  
+  buttonElement.href = promo.url;
+  buttonElement.addEventListener('click', (e) => {
+    e.preventDefault();
+    trackPromoClick(promo);
+    window.open(promo.url, '_blank'); // Открываем ссылку после трекинга
+  });
+}
 
 export function generateCard(promo, template) {
   const fragment = template.content.cloneNode(true);
