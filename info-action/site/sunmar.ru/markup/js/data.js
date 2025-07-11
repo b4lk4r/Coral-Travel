@@ -10,9 +10,9 @@ export const promos = [
     url: "https://sunmar.ru/tours/turkey",
     promo_begin: "2025-07-01 00:00:00",
     promo_end: "2025-07-31 23:59:59",
-    categories: "all"  
+    categories: "all",
+    YM: ''  
   },
-
   {
     toggle: true,
     erid: "F7k2C1xLp",
@@ -24,7 +24,7 @@ export const promos = [
     url: "https://sunmar.ru/tours/sochi",
     promo_begin: "2025-07-10 00:00:00",
     promo_end: "2025-08-15 23:59:59",
-    categories: ["all", "sunmarbonus"]
+    categories: ["all", "sunmarbonus"],
   },
   {
     toggle: true,

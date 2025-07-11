@@ -200,3 +200,10 @@ import { promos } from "./data.js";
   });
 
 })();
+
+// 
+// link.addEventListener('click', e=> {
+//   e.preventDefault()
+//   setYMTarget...
+//   window.open('url', "_blank")
+// })
