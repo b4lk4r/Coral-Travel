@@ -4,11 +4,33 @@ import { promos } from "./data.js";
 (async () => {
   await hostReactAppReady();
 
-   let activeTooltip = null; 
+  let activeTooltip = null;
+  let hideTooltipTimer = null;
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  function hideTooltip() {
+    if (activeTooltip) {
+      activeTooltip.classList.remove('visible');
+      activeTooltip.addEventListener('transitionend', () => {
+        if (activeTooltip && !activeTooltip.classList.contains('visible')) {
+           activeTooltip.remove();
+           activeTooltip = null;
+        }
+      }, { once: true });
+    }
+    document.removeEventListener('click', handleOutsideClick);
+  }
+
+  function handleOutsideClick(event) {
+    if (activeTooltip && !activeTooltip.contains(event.target) && !event.target.closest('.promo-card-ad-label')) {
+      hideTooltip();
+    }
+  }
 
   function createTooltipElement(promo) {
     const tooltip = document.createElement('div');
     tooltip.className = 'promo-card-tooltip';
+    tooltip.dataset.erid = promo.erid; 
     tooltip.innerHTML = `
       <div class="tooltip-content-line">
         <span class="tooltip-company-name">${promo.advertiser}</span>
@@ -30,14 +52,21 @@ import { promos } from "./data.js";
       navigator.clipboard.writeText(promo.erid).then(() => {
         copyButton.title = 'Скопировано!';
         setTimeout(() => { copyButton.title = 'Копировать ERID'; }, 2000);
-      }).catch(err => console.error('Не удалось скопировать ERID:', err));
+      });
     });
 
+    if (!isTouchDevice) {
+        tooltip.addEventListener('mouseenter', () => clearTimeout(hideTooltipTimer));
+        tooltip.addEventListener('mouseleave', () => {
+            hideTooltipTimer = setTimeout(hideTooltip, 200);
+        });
+    }
     return tooltip;
   }
 
   function showTooltip(targetLabel, promo) {
-    if (activeTooltip) activeTooltip.remove();
+    clearTimeout(hideTooltipTimer);
+    if (activeTooltip) hideTooltip();
 
     activeTooltip = createTooltipElement(promo);
     document.body.appendChild(activeTooltip);
@@ -45,7 +74,6 @@ import { promos } from "./data.js";
     const labelRect = targetLabel.getBoundingClientRect();
     const tooltipRect = activeTooltip.getBoundingClientRect();
     const gap = 10;
-
     let top = labelRect.bottom + gap;
     let left = labelRect.right - tooltipRect.width;
 
@@ -53,26 +81,18 @@ import { promos } from "./data.js";
     if (left + tooltipRect.width > window.innerWidth - gap) {
       left = window.innerWidth - tooltipRect.width - gap;
     }
-
     const labelCenterX = labelRect.left + labelRect.width / 2;
     const arrowPosition = labelCenterX - left;
-
     activeTooltip.style.top = `${top}px`;
     activeTooltip.style.left = `${left}px`;
     activeTooltip.style.setProperty('--arrow-left-position', `${arrowPosition}px`);
     
     requestAnimationFrame(() => activeTooltip.classList.add('visible'));
-  }
 
-  function hideTooltip() {
-    if (activeTooltip) {
-      activeTooltip.classList.remove('visible');
-      activeTooltip.addEventListener('transitionend', () => {
-        if (activeTooltip && !activeTooltip.classList.contains('visible')) {
-           activeTooltip.remove();
-           activeTooltip = null;
-        }
-      }, { once: true });
+    if (isTouchDevice) {
+        setTimeout(() => {
+            document.addEventListener('click', handleOutsideClick);
+        }, 0);
     }
   }
 
@@ -80,17 +100,13 @@ import { promos } from "./data.js";
     if (!dateStr) return null;
     const [datePart, timePart] = dateStr.split(' ');
     const [year, month, day] = datePart.split('-').map(Number);
-    const [hours, minutes, seconds] = timePart.split(':').map(Number);
+    const [hours, minutes, seconds] = (timePart || '0:0:0').split(':').map(Number);
     return new Date(year, month - 1, day, hours, minutes, seconds);
   }
 
   function getMonthName(date) {
-    const formatter = new Intl.DateTimeFormat('ru-RU',  {
-      day: 'numeric',
-      month: 'long'
-    });
+    const formatter = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' });
     const parts = formatter.formatToParts(date);
-    
     const monthPart = parts.find(part => part.type === 'month');
     return monthPart ? monthPart.value : '';
   }
@@ -98,27 +114,20 @@ import { promos } from "./data.js";
   function isPromoActive(promo) {
     const now = new Date();
     const beginDate = parseDate(promo.promo_begin);
-    
     if (promo.isUnlimited) {
       return promo.toggle && now >= beginDate;
     }
-    
     const endDate = parseDate(promo.promo_end);
     return promo.toggle && now >= beginDate && now <= endDate;
   }
 
   function formatEndDate(promo) {
-    if (promo.isUnlimited) {
-      return 'Бессрочно';
-    }
-    
+    if (promo.isUnlimited) return 'Бессрочно';
     const endDate = parseDate(promo.promo_end);
     if (!endDate) return '';
-
     const day = endDate.getDate();
     const month = getMonthName(endDate);
     const year = endDate.getFullYear();
-    
     return `до ${day} ${month} ${year} г.`;
   }
 
@@ -129,7 +138,6 @@ import { promos } from "./data.js";
     const image = fragment.querySelector(".promo-card-image");
     image.src = promo.visual;
     image.alt = promo.name;
-
     fragment.querySelector(".promo-card-title").textContent = promo.name;
     fragment.querySelector(".promo-card-description").textContent = promo.description;
     fragment.querySelector(".promo-end-date").textContent = formatEndDate(promo);
@@ -141,34 +149,41 @@ import { promos } from "./data.js";
     if (promo.erid && promo.showAdLabel && promo.advertiser) {
       const adLabelWrapper = fragment.querySelector('.promo-card-ad-label-wrapper');
       const adLabel = adLabelWrapper.querySelector('.promo-card-ad-label');
-      
       adLabelWrapper.style.display = 'block';
 
-      adLabel.addEventListener('mouseenter', () => {
-        showTooltip(adLabel, promo);
-      });
-      
-      adLabel.addEventListener('mouseleave', () => {
-        hideTooltip();
-      });
+      if (isTouchDevice) {
+        adLabel.addEventListener('click', (event) => {
+          event.stopPropagation(); 
+          const isAlreadyOpen = activeTooltip && activeTooltip.dataset.erid === promo.erid;
+          hideTooltip();
+          if (!isAlreadyOpen) {
+            showTooltip(adLabel, promo);
+          }
+        });
+      } else {
+        adLabel.addEventListener('mouseenter', () => {
+          clearTimeout(hideTooltipTimer);
+          showTooltip(adLabel, promo);
+        });
+        adLabel.addEventListener('mouseleave', () => {
+          hideTooltipTimer = setTimeout(hideTooltip, 200);
+        });
+      }
     }
-
     return fragment;
   }
 
   function renderPromos(category = 'all') {
     const place = document.querySelector("#test");
+    if (!place) return; 
     place.innerHTML = '';
 
     let filteredPromos = promos.filter(isPromoActive);
     
     if (category !== 'all') {
       filteredPromos = filteredPromos.filter(promo => {
-        if (Array.isArray(promo.categories)) {
-          return promo.categories.includes(category);
-        } else if (promo.category) {
-          return promo.category === category;
-        }
+        if (Array.isArray(promo.categories)) return promo.categories.includes(category);
+        if (promo.category) return promo.category === category;
         return false;
       });
     }
@@ -177,7 +192,6 @@ import { promos } from "./data.js";
       if (a.isUnlimited && !b.isUnlimited) return 1;
       if (!a.isUnlimited && b.isUnlimited) return -1;
       if (a.isUnlimited && b.isUnlimited) return 0;
-      
       const dateA = parseDate(a.promo_end);
       const dateB = parseDate(b.promo_end);
       return dateA - dateB;
@@ -194,9 +208,6 @@ import { promos } from "./data.js";
   }
 
   renderPromos();
-
-  window.addEventListener('filterPromos', (e) => {
-    renderPromos(e.detail.category);
-  });
-
+  window.addEventListener('filterPromos', (e) => { renderPromos(e.detail.category); });
+  
 })();
