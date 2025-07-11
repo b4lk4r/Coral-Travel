@@ -1,3 +1,12 @@
+export const tag = {
+  all: "all",
+  recomendation: 'recomendation',
+  hotels: "hotels",
+  destination: "destinations",
+  sunmar_bonus: "sunmarbonus",
+  other: "other"
+};
+
 export const promos = [
   {
     toggle: true,
@@ -11,7 +20,7 @@ export const promos = [
     promo_begin: "2025-07-01 00:00:00",
     string_promo_end: "до 31 июля 2025 г.",
     promo_end: "2025-07-31 23:59:59",
-    categories: "all",
+    categories: [tag.all]
     YM: ''  
   },
   {
@@ -26,7 +35,7 @@ export const promos = [
     promo_begin: "2025-07-10 00:00:00",
     string_promo_end: "до 8 августа 2025 г.",
     promo_end: "2025-08-15 23:59:59",
-    categories: ["all", "sunmarbonus"],
+    categories: [tag.all, tag.sunmar_bonus]
   },
   {
     toggle: true,
@@ -40,7 +49,7 @@ export const promos = [
     promo_begin: "2025-07-01 00:00:00",
     string_promo_end: "до 30 июля 2025 г.",
     promo_end: "2025-07-30 23:59:59",
-    categories: "all"
+    categories: [tag.all]
   },
   {
     toggle: true,
@@ -54,7 +63,7 @@ export const promos = [
     promo_begin: "2025-07-15 00:00:00",
     promo_end: "2025-08-15 23:59:59",
     string_promo_end: "до 15 августа 2025 г.",
-    categories: ["all", "sunmarbonus"]
+    categories: [tag.all]
   },
   {
     toggle: true,
@@ -69,6 +78,6 @@ export const promos = [
     promo_begin: "2025-07-01 00:00:00",
     string_promo_end: "Бессрочно",
     promo_end: null,
-    categories: "all"
+    categories: [tag.all]
   }
 ];
