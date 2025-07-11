@@ -84,17 +84,6 @@ import { promos } from "./data.js";
     return new Date(year, month - 1, day, hours, minutes, seconds);
   }
 
-  function getMonthName(date) {
-    const formatter = new Intl.DateTimeFormat('ru-RU',  {
-      day: 'numeric',
-      month: 'long'
-    });
-    const parts = formatter.formatToParts(date);
-    
-    const monthPart = parts.find(part => part.type === 'month');
-    return monthPart ? monthPart.value : '';
-  }
-
   function isPromoActive(promo) {
     const now = new Date();
     const beginDate = parseDate(promo.promo_begin);
@@ -107,21 +96,6 @@ import { promos } from "./data.js";
     return promo.toggle && now >= beginDate && now <= endDate;
   }
 
-  function formatEndDate(promo) {
-    if (promo.isUnlimited) {
-      return 'Бессрочно';
-    }
-    
-    const endDate = parseDate(promo.promo_end);
-    if (!endDate) return '';
-
-    const day = endDate.getDate();
-    const month = getMonthName(endDate);
-    const year = endDate.getFullYear();
-    
-    return `до ${day} ${month} ${year} г.`;
-  }
-
   function generateCard(promo) {
     const template = document.querySelector("#promo-card-template");
     const fragment = template.content.cloneNode(true);
@@ -130,9 +104,11 @@ import { promos } from "./data.js";
     image.src = promo.visual;
     image.alt = promo.name;
 
+    const string_end_date = promo.string_promo_end;
+
     fragment.querySelector(".promo-card-title").textContent = promo.name;
     fragment.querySelector(".promo-card-description").textContent = promo.description;
-    fragment.querySelector(".promo-end-date").textContent = formatEndDate(promo);
+    fragment.querySelector(".promo-end-date").textContent = string_end_date;
     const promoLinkButton = fragment.querySelector(".promo-card-button");
     if (promoLinkButton) {
       promoLinkButton.href = promo.url;
@@ -173,16 +149,6 @@ import { promos } from "./data.js";
       });
     }
 
-    filteredPromos.sort((a, b) => {
-      if (a.isUnlimited && !b.isUnlimited) return 1;
-      if (!a.isUnlimited && b.isUnlimited) return -1;
-      if (a.isUnlimited && b.isUnlimited) return 0;
-      
-      const dateA = parseDate(a.promo_end);
-      const dateB = parseDate(b.promo_end);
-      return dateA - dateB;
-    });
-
     if (filteredPromos.length === 0) {
       place.innerHTML = '<p>Нет активных акций в этой категории</p>';
       return;
@@ -200,7 +166,6 @@ import { promos } from "./data.js";
   });
 
 })();
-
 // 
 // link.addEventListener('click', e=> {
 //   e.preventDefault()
