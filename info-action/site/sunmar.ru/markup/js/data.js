@@ -68,7 +68,7 @@ export const promos = [
   {
     toggle: true,
     erid: "F7k2C1xLp",
-    showAdLabel: false,
+    showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
     name: "Специальное предложение",
     description: "Эксклюзивные условия для наших клиентов",
