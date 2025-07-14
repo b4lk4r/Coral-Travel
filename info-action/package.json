@@ -1,8 +1,5 @@
 {
   "devDependencies": {
     "sass": "^1.89.2"
-  },
-  "dependencies": {
-    "tippy.js": "^6.3.7"
   }
 }
