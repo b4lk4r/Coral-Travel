@@ -11,9 +11,13 @@ export const promos = [
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "до 31 июля 2025 г.",
     promo_end: "2025-07-31 23:59",
-    categories: "all"
+    categories: "all",
+    ym: {
+      id: "",
+      target_name: ""
+    }
   },
-  
+
   {
     toggle: true,
     erid: "F7k2C1xLp",

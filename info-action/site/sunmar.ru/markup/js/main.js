@@ -5,47 +5,62 @@ import { isPromoActive } from "./date-utils.js";
 import { generateCard } from "./card-generator.js";
 import { initYandexMetrika } from "./yandex-metrika.js";
 
-//метрикa
-initYandexMetrika();
+document.addEventListener('DOMContentLoaded', () => {
+  initYandexMetrika();
+});
 
 async function initApp() {
   await hostReactAppReady();
-  renderPromos();
+  renderAllPromos();
 }
 
-function filterPromosByCategory(category = 'all') {
-  return promos
-    .filter(isPromoActive)
-    .filter(promo => 
-      category === 'all' || 
-      (Array.isArray(promo.categories) 
-        ? promo.categories.includes(category) 
-        : promo.category === category
-    ));
-}
-
-function renderPromos(category = 'all') {
+function renderAllPromos() {
   const container = document.getElementById("test");
   const template = document.getElementById("promo-card-template");
   
   if (!container || !template) return;
 
   container.innerHTML = '';
+
+  const activePromos = promos.filter(isPromoActive);
   
-  const filteredPromos = filterPromosByCategory(category);
-  
-  if (filteredPromos.length === 0) {
+  if (activePromos.length === 0) {
     container.innerHTML = '<p class="no-promos">Нет активных акций</p>';
     return;
   }
 
-  filteredPromos.forEach(promo => {
+  activePromos.forEach(promo => {
     container.appendChild(generateCard(promo, template));
   });
+
+  applyCategoryFilter('all');
+}
+
+function applyCategoryFilter(category = 'all') {
+  const allCards = document.querySelectorAll('.promo-card-inner');
+  let hasVisibleCards = false;
+
+  allCards.forEach(card => {
+    const cardCategories = card.dataset.categories?.split(' ') || ['all'];
+    const shouldShow = category === 'all' || cardCategories.includes(category);
+    
+    card.style.display = shouldShow ? 'flex' : 'none';
+    if (shouldShow) hasVisibleCards = true;
+  });
+
+  const noPromosMessage = document.querySelector('.no-promos');
+  if (!hasVisibleCards) {
+    if (!noPromosMessage) {
+      const container = document.getElementById("test");
+      container.insertAdjacentHTML('beforeend', '<p class="no-promos">Нет активных акций в этой категории</p>');
+    }
+  } else if (noPromosMessage) {
+    noPromosMessage.remove();
+  }
 }
 
 initApp();
 
 window.addEventListener('filterPromos', (e) => {
-  renderPromos(e.detail?.category);
+  applyCategoryFilter(e.detail?.category);
 });
