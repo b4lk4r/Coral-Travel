@@ -13,6 +13,7 @@ export const promos = [
     promo_end: "2025-07-31 23:59",
     categories: "all"
   },
+  
   {
     toggle: true,
     erid: "F7k2C1xLp",
