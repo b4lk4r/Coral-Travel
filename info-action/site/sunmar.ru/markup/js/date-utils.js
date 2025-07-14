@@ -27,13 +27,15 @@ export function isPromoActive(promo) {
   if (!beginDate) {
     beginDate = new Date();
     beginDate.setHours(18, 10, 0, 0);
-    console.error('РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РёР»Рё РїСѓСЃС‚Р°СЏ РґР°С‚Р° РЅР°С‡Р°Р»Р° Р°РєС†РёРё (СѓСЃС‚Р°РЅРѕРІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ РґР°С‚Р° 18:00):', promo);
+    console.error('Некорректная или пустая дата начала акции (установлена текущая дата 18:00):', promo);
+
 
   }
   
   const endDate = parseDate(promo.promo_end);
   if (!endDate && !promo.isUnlimited) {
-    console.error('РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РёР»Рё РїСѓСЃС‚Р°СЏ РґР°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ Р°РєС†РёРё:', promo);
+     console.error('Некорректная или пустая дата окончания акции:', promo);
+
   }
 
   if (promo.isUnlimited) {
