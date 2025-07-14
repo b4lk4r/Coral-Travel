@@ -5,15 +5,21 @@ function setupPromoButton(buttonElement, promo) {
   if (!buttonElement) return;
   
   buttonElement.href = promo.url;
+  
   buttonElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    trackPromoClick(promo);
-    window.open(promo.url, '_blank'); // Открываем ссылку после трекинга
+    e.preventDefault(); 
+    trackPromoClick(promo); 
+    window.open(promo.url, '_blank'); 
   });
 }
 
 export function generateCard(promo, template) {
   const fragment = template.content.cloneNode(true);
+  const cardInner = fragment.querySelector(".promo-card-inner");
+
+  if (promo.categories && promo.categories.length > 0) {
+    cardInner.dataset.category = promo.categories.join(' ');
+  }
 
   const image = fragment.querySelector(".promo-card-image");
   image.src = promo.visual;
@@ -23,10 +29,8 @@ export function generateCard(promo, template) {
   fragment.querySelector(".promo-card-description").textContent = promo.description;
   fragment.querySelector(".promo-end-date").textContent = promo.string_promo_end;
   
-  const promoLinkButton = fragment.querySelector(".promo-card-button");
-  if (promoLinkButton) {
-    promoLinkButton.href = promo.url;
-  }
+  const promoLinkButton = fragment.querySelector(".promo-card-info-button");
+  setupPromoButton(promoLinkButton, promo);
 
   if (promo.erid && promo.showAdLabel && promo.advertiser) {
     const adLabelWrapper = fragment.querySelector('.promo-card-ad-label-wrapper');

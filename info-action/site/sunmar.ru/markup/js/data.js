@@ -78,6 +78,6 @@ export const promos = [
     promo_begin: "2025-07-01 00:00:00",
     string_promo_end: "Бессрочно",
     promo_end: null,
-    categories: [tag.all]
+    categories: [tag.all, tag.other]
   }
 ];
