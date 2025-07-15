@@ -30,7 +30,11 @@ export const promos = [
     promo_begin: "2025-07-10 00:00",
     string_promo_end: "до 8 августа 2025 г.",
     promo_end: "2025-08-15 23:59",
-    categories: ["all", "sunmarBonus"]
+    categories: ["all", "sunmarBonus"],
+    ym: {
+      id: "",
+      target_name: ""
+    }
   },
   {
     toggle: true,
@@ -44,12 +48,16 @@ export const promos = [
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "до 30 июля 2025 г.",
     promo_end: "2025-07-30 23:59",
-    categories: "all"
+    categories: "all",
+    ym: {
+      id: "",
+      target_name: ""
+    }
   },
   {
     toggle: true,
     erid: "F7k2C1xLp",
-    showAdLabel: false,
+    showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
     name: "Бонусы Sunmar",
     description: "Получите двойные бонусы при бронировании",
@@ -58,7 +66,11 @@ export const promos = [
     promo_begin: "2025-07-15 00:00",
     promo_end: "2025-08-15 23:59",
     string_promo_end: "до 15 августа 2025 г.",
-    categories: "all"
+    categories: "all",
+    ym: {
+      id: "",
+      target_name: ""
+    }
   },
 
   {
@@ -70,11 +82,14 @@ export const promos = [
     description: "Эксклюзивные условия для наших клиентов",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
     url: "https://sunmar.ru/special",
-    isUnlimited: true,
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "Бессрочно",
     promo_end: null,
-    categories: "all"
+    categories: "all",
+    ym: {
+      id: "",
+      target_name: ""
+    }
   },
 
   {
@@ -86,10 +101,13 @@ export const promos = [
     description: "Эксклюзивные условия для наших клиентов",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
     url: "https://sunmar.ru/special",
-    isUnlimited: false,
-    promo_begin: "2025-07-14 12:49",
+    promo_begin: "2025-0714 12:49",
     string_promo_end: "до 14 июля 2025 г.",
-    promo_end: "2025-07-14 12:50",
-    categories: "all"
+    promo_end: "2025-07-19 12:50",
+    categories: "all",
+    ym: {
+      id: "",
+      target_name: ""
+    }
   }
 ];
