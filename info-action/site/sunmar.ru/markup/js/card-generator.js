@@ -27,10 +27,20 @@ export function generateCard(promo, template) {
   const promoButton = fragment.querySelector(".promo-card-info-button");
   if (promoButton) {
     promoButton.href = promo.url;
+    
     promoButton.addEventListener('click', (e) => {
       e.preventDefault();
-      trackPromoClick(promo);
-      window.open(promo.url, '_blank', 'noopener,noreferrer');
+      
+
+      const trackingSuccess = trackPromoClick(promo);
+      
+
+      setTimeout(() => {
+        window.open(promo.url, '_blank', 'noopener,noreferrer');
+      }, trackingSuccess ? 300 : 0);
+      
+
+      console.log('Promo click tracked:', trackingSuccess, promo);
     });
   }
 

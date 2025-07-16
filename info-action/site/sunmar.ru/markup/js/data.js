@@ -7,14 +7,14 @@ export const promos = [
     name: "Горящие туры в Турцию",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/tours/turkey",
+    url: "https://sunmar.ru",
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "до 31 июля 2025 г.",
     promo_end: "2025-07-31 23:59",
     categories: "all",
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   },
 
@@ -26,14 +26,14 @@ export const promos = [
     name: "Отдых в Сочи",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/tours/sochi",
+    url: "https://sunmar.ru",
     promo_begin: "2025-07-10 00:00",
     string_promo_end: "до 8 августа 2025 г.",
     promo_end: "2025-08-15 23:59",
     categories: ["all", "sunmarBonus"],
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   },
   {
@@ -44,14 +44,14 @@ export const promos = [
     name: "Раннее бронирование 2026",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20% Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/early-booking",
+    url: "https://sunmar.ru/",
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "до 30 июля 2025 г.",
     promo_end: "2025-07-30 23:59",
     categories: "all",
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   },
   {
@@ -62,14 +62,14 @@ export const promos = [
     name: "Бонусы Sunmar",
     description: "Получите двойные бонусы при бронировании",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/bonus",
+    url: "https://sunmar.ru",
     promo_begin: "2025-07-15 00:00",
     promo_end: "2025-08-15 23:59",
     string_promo_end: "до 15 августа 2025 г.",
     categories: "all",
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   },
 
@@ -81,14 +81,14 @@ export const promos = [
     name: "Специальное предложение",
     description: "Эксклюзивные условия для наших клиентов",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/special",
+    url: "https://sunmar.ru",
     promo_begin: "2025-07-01 00:00",
     string_promo_end: "Бессрочно",
     promo_end: null,
     categories: "all",
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   },
 
@@ -100,14 +100,14 @@ export const promos = [
     name: "test",
     description: "Эксклюзивные условия для наших клиентов",
     visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/special",
-    promo_begin: "2025-0714 12:49",
+    url: "https://sunmar.ru",
+    promo_begin: "2025-07-14 12:49",
     string_promo_end: "до 14 июля 2025 г.",
     promo_end: "2025-07-19 12:50",
     categories: "all",
     ym: {
-      id: "",
-      target_name: ""
+      id: "103350423",
+      target_name: "test_counter"
     }
   }
 ];

@@ -1,16 +1,14 @@
-// main.js
+
 import { hostReactAppReady } from "../../../common/js/usefuls.js";
 import { promos } from "./data.js";
 import { isPromoActive } from "./date-utils.js";
 import { generateCard } from "./card-generator.js";
 import { initYandexMetrika } from "./yandex-metrika.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  initYandexMetrika();
-});
 
 async function initApp() {
   await hostReactAppReady();
+  initYandexMetrika();
   renderAllPromos();
 }
 
