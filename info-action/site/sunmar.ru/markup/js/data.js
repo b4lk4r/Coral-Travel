@@ -13,8 +13,8 @@ export const promos = [
     promo_end: "2025-07-31 23:59",
     categories: "all",
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   },
 
@@ -32,8 +32,8 @@ export const promos = [
     promo_end: "2025-08-15 23:59",
     categories: ["all", "sunmarBonus"],
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   },
   {
@@ -50,8 +50,8 @@ export const promos = [
     promo_end: "2025-07-30 23:59",
     categories: "all",
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   },
   {
@@ -68,8 +68,8 @@ export const promos = [
     string_promo_end: "до 15 августа 2025 г.",
     categories: "all",
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   },
 
@@ -87,8 +87,8 @@ export const promos = [
     promo_end: null,
     categories: "all",
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   },
 
@@ -106,8 +106,8 @@ export const promos = [
     promo_end: "2025-07-19 12:50",
     categories: "all",
     ym: {
-      id: "103350423",
-      target_name: "test_counter"
+      id: 215233,
+      target_name: "den-molodezhi"
     }
   }
 ];
