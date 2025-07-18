@@ -3,17 +3,17 @@ export const promos = [
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "Горящие туры в Турцию",
+    name: "Onlyhotel",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru",
-    promo_begin: "2025-07-01 00:00",
-    string_promo_end: "до 31 июля 2025 г.",
-    promo_end: "2025-07-31 23:59",
-    categories: "all",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/Promo_page_Sunmar_684x364_Hotel.png",
+    url: "https://www.sunmar.ru/bookinghotel/?banner_on_site=offers_onlyhotel&erid=2W5zFHUcxme",
+    promo_begin: "2025-07-03 16:00",
+    string_promo_end: "до 20 июля 2025 г.",
+    promo_end: "2025-07-20 23:59",
+    categories: ["all", "recommended"],
     ym: {
       id: 215233,
-      target_name: "den-molodezhi"
+      target_name: "onlyhotel"
     }
   },
 
@@ -21,13 +21,13 @@ export const promos = [
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "Отдых в Сочи",
+    name: "День молодёжи",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru",
-    promo_begin: "2025-07-10 00:00",
-    string_promo_end: "до 8 августа 2025 г.",
-    promo_end: "2025-08-15 23:59",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/sunmar_promo_page_684x364_mark_youth_day_1x.webp",
+    url: "https://www.sunmar.ru/info-actions/den-molodezhi/?banner_on_site=action_molodezh&erid=2W5zFHkPvVN",
+    promo_begin: "2025-06-27 15:00",
+    string_promo_end: "до 30 июля 2025 г.",
+    promo_end: "2025-07-30 23:59",
     categories: ["all", "sunmarBonus"],
     ym: {
       id: 215233,
@@ -38,34 +38,34 @@ export const promos = [
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "Раннее бронирование 2026",
+    name: "РБ осень-зима",
     description: "Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20% Раннее бронирование — шанс купить пятёрку по цене четвёрки с предоплатой 20%",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru/",
-    promo_begin: "2025-07-01 00:00",
-    string_promo_end: "до 30 июля 2025 г.",
-    promo_end: "2025-07-30 23:59",
-    categories: "all",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/Promo_page_Sunmar_684x364_vacation_summer_winter.png",
+    url: "https://www.sunmar.ru/rb-winter/?banner_on_site=offers_rb-winter&erid=2W5zFHGEAHe",
+    promo_begin: "2025-06-17 18:00",
+    string_promo_end: "до 31 августа 2025 г.",
+    promo_end: "2025-08-31 23:59",
+    categories: ["all", "recommended"],
     ym: {
       id: 215233,
-      target_name: "den-molodezhi"
+      target_name: "rb-osen-zima"
     }
   },
   {
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "Бонусы Sunmar",
+    name: "Отдых с детьми",
     description: "Получите двойные бонусы при бронировании",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru",
-    promo_begin: "2025-07-15 00:00",
-    promo_end: "2025-08-15 23:59",
-    string_promo_end: "до 15 августа 2025 г.",
-    categories: "all",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/promo_page_sunmar_1368x728_summer_weekend_erid.webp",
+    url: "https://www.sunmar.ru/familyholiday/?banner_on_site=action_familyholiday&erid=2W5zFK19gmE",
+    promo_begin: "2025-05-29 17:00",
+    promo_end: "2025-07-30 23:59",
+    string_promo_end: "до 30 июля 2025 г.",
+    categories: ["all", "hotels"],
     ym: {
       id: 215233,
-      target_name: "den-molodezhi"
+      target_name: "otdih-s-detmi"
     }
   },
 
@@ -73,17 +73,17 @@ export const promos = [
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "Специальное предложение",
+    name: "promo поп-ап на майские",
     description: "Эксклюзивные условия для наших клиентов",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru",
-    promo_begin: "2025-07-01 00:00",
-    string_promo_end: "Бессрочно",
-    promo_end: null,
-    categories: "all",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/Promo_page_Sunmar_684x364_may_mark.webp",
+    url: "",
+    promo_begin: "2025-04-29 17:00",
+    string_promo_end: "до 29 июля 2025 г.",
+    promo_end: "2025-07-29 23:59",
+    categories: ["all", "destinations", "other"],
     ym: {
       id: 215233,
-      target_name: "den-molodezhi"
+      target_name: "promo-pop-ap-na-mayskie"
     }
   },
 
@@ -91,17 +91,17 @@ export const promos = [
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
-    name: "test",
+    name: "Промо Эгейка",
     description: "Эксклюзивные условия для наших клиентов",
-    visual: "https://avatars.mds.yandex.net/i?id=68d28770f58b629e474c0cce5f4b4b7d_l-5248827-images-thumbs&n=13",
-    url: "https://sunmar.ru",
-    promo_begin: "2025-07-14 12:49",
-    string_promo_end: "до 14 июля 2025 г.",
-    promo_end: "2025-07-19 12:50",
-    categories: "all",
+    visual: "https://b2ccdn.sunmar.ru/content/img/actions/Promopage_Sunmar_684x364_aegean.png",
+    url: "https://www.sunmar.ru/#quiz-section",
+    promo_begin: "2025-04-21 17:00",
+    string_promo_end: "до 28 июля 2025 г.",
+    promo_end: "2025-07-28 23:59",
+    categories: ["all", "other"],
     ym: {
       id: 215233,
-      target_name: "den-molodezhi"
+      target_name: "promo-egeyka"
     }
   }
 ];
