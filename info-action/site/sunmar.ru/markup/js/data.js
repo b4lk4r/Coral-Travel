@@ -1,6 +1,5 @@
 export const promos = [
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
@@ -19,7 +18,6 @@ export const promos = [
   },
 
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
@@ -37,7 +35,6 @@ export const promos = [
     }
   },
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
@@ -55,7 +52,6 @@ export const promos = [
     }
   },
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
@@ -74,7 +70,6 @@ export const promos = [
   },
 
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",
@@ -93,7 +88,6 @@ export const promos = [
   },
 
   {
-    toggle: true,
     erid: "F7k2C1xLp",
     showAdLabel: true,
     advertiser: "ООО «МирТурСервис»",

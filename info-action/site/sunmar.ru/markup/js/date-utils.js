@@ -39,8 +39,8 @@ export function isPromoActive(promo) {
       console.error('Некорректная дата окончания акции. Необходим формат "ДД-ММ-ГГГГ ЧЧ:ММ" или null.', promo);
     }
   } else if (promo.promo_end == null || promo.promo_end == undefined || promo.promo_end == "") {
-    return promo.toggle && now >= beginDate;
+    return now >= beginDate;
   }
   
-  return promo.toggle && now >= beginDate && now <= endDate;
+  return now >= beginDate && now <= endDate;
 }
